@@ -40,6 +40,10 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: ${{ env.DOCKER_HUB_REGISTRY }}/${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+
+          #Pull the Docker image from Docker Hub
+    - name: Pull Docker image from Docker Hub
+      run: docker pull ${{ env.DOCKER_HUB_REGISTRY }}/${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
 #Unit test
 #Sonar test
 
@@ -54,9 +58,7 @@ jobs:
         push: true
         tags: ${{ env.DOCKER_REGISTRY }}/docker-trial/springboot-images-new:latest,${{ env.ACR_REGISTRY }}/springboot-images-new:latest
 
-      #Pull the Docker image from Docker Hub
-    - name: Pull Docker image from Docker Hub
-      run: docker pull ${{ env.DOCKER_HUB_REGISTRY }}/${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+
 
 
 
