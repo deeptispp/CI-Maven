@@ -48,7 +48,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ${{ env.JFROG_REGISTRY }}/docker-trial/springboot-images-new:latest,${{ env.ACR_REGISTRY }}/springboot-images-new:latest
+        tags: ${{ env.DOCKER_REGISTRY }}/docker-trial/springboot-images-new:latest,${{ env.ACR_REGISTRY }}/springboot-images-new:latest
 
 
    # - name: Log in to Docker Hub
